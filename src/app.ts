@@ -6,6 +6,8 @@ import {weather} from "./components/weather"
 import {logger} from "./components/logger"
 import {auth} from "./components/auth"
 
+import {port} from "../config"
+
 const app = express()
 
 app.set('view engine', "ejs")
@@ -14,8 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 let array: Array<any> = []
 
-app.listen(4020, () => {
-    console.log("port 4020")
+app.listen(port, () => {
+    console.log(`port ${port}`)
 }) 
 
 app.use(logger)
