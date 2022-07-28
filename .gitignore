@@ -2,3 +2,6 @@
 /package_lock.json
 /dist
 /*.log
+/.env
+/*.env
+/.env.*

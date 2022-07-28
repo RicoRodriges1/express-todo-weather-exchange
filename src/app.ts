@@ -1,12 +1,12 @@
 import express from 'express'
 import bodyParser from "body-parser"
 
-import {course} from "./components/course"
-import {weather} from "./components/weather"
+import {course, sendGetRequest as getCourse} from "./components/course"
+import {weather, sendGetRequest as getWeather} from "./components/weather"
 import {logger} from "./components/logger"
 import {auth} from "./components/auth"
 
-import {port} from "../config"
+import {port} from "./config"
 
 const app = express()
 
@@ -25,6 +25,8 @@ app.use(logger)
 app.use(auth)
 
 app.get("/", (req,res) => {
+    getWeather()
+    getCourse()
     res.render("list", {newListItem:array, weather:weather, course:course})
 })
 

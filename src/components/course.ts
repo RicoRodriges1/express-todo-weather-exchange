@@ -2,7 +2,7 @@ import axios from "axios"
 
 let course = 'перезавантажте сторінку!'
 
-const sendGetRequest = async () => {
+export const sendGetRequest = async () => {
     try {
         const res = await axios.get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
         let usd: Array<string> = []
@@ -38,8 +38,6 @@ const sendGetRequest = async () => {
         console.error(err)
     }
 }
-
-sendGetRequest()
 
 export {course}
 
