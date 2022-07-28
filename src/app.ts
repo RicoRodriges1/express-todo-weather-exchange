@@ -1,8 +1,8 @@
 import express from 'express'
 import bodyParser from "body-parser"
 
-import {course, sendGetRequest as getCourse} from "./components/course"
-import {weather, sendGetRequest as getWeather} from "./components/weather"
+import {getCourse } from "./components/course"
+import {getWeather} from "./components/weather"
 import {logger} from "./components/logger"
 import {auth} from "./components/auth"
 
@@ -25,8 +25,8 @@ app.use(logger)
 app.use(auth)
 
 app.get("/", (req,res) => {
-    getWeather()
-    getCourse()
+    let weather = getWeather()
+    let course = getCourse()
     res.render("list", {newListItem:array, weather:weather, course:course})
 })
 

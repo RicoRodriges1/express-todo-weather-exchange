@@ -2,7 +2,7 @@ import axios from "axios"
 
 let weather = 'перезавантажте сторінку'
 
-export const sendGetRequest = async () => {
+const sendGetRequest = async () => {
     try {
         const res = await axios.get("https://ua.sinoptik.ua/")
         let regex = /(<div class="main loaded" id="bd1">)([\s\S]*?)<div class="mid1">/
@@ -13,4 +13,7 @@ export const sendGetRequest = async () => {
     }
 }
 
-export {weather}
+export const getWeather = () => {
+    sendGetRequest()
+    return weather
+}

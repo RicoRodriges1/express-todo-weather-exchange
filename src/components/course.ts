@@ -2,9 +2,9 @@ import axios from "axios"
 
 let course = 'перезавантажте сторінку!'
 
-export const sendGetRequest = async () => {
+let sendGetRequest = async () => {
     try {
-        const res = await axios.get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
+        let res = await axios.get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
         let usd: Array<string> = []
         let eur: Array<string> = []
         let btc: Array<string> = []
@@ -37,7 +37,13 @@ export const sendGetRequest = async () => {
     } catch (err) {
         console.error(err)
     }
+    return course
 }
 
-export {course}
+export const getCourse = () => {
+    sendGetRequest()
+    return course
+} 
+
+
 
